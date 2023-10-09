@@ -1,4 +1,50 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+.app-component{
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.home-container{
+    width: 90%;
+    margin: 1rem auto;
+    min-height: 80vh;
+    overflow-y: scroll;
+    .home-title{
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      text-align: center;
+      color: #333;
+      letter-spacing: 0.05rem;
+    }
+    .home-login-title{
+      font-size: 1.25rem;
+      margin-top: 3rem;
+      text-align: center;
+      color: #333;
+      letter-spacing: 0.05rem;
+    }
+    .login-btns{
+      width: 100%;
+      display: flex;
+      padding-top: 2rem;
+      margin-top: 1rem;
+      justify-content: center;
+      .guest-btn, .admin-btn{
+        width: 15%;
+        padding: 0.5rem 0.25rem;
+        background: #5513b4;
+        color: #fff;
+        border: none;
+        margin: 0 2rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+      }
+    }
+    
 }

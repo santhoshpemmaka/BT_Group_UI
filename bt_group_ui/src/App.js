@@ -1,10 +1,24 @@
 import './App.scss';
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
+import Feedback from './Feedback/Feeback';
+import Login from './Login/Login';
+import Dashboard from './Dashboard/Dashboard';
+import Home from './Home';
 
 function App() {
   return (
-    <div className="App">
-      <h1>BT Group Task</h1>
-    </div>
+      <div className='app-component'>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/feedback" element={<Feedback/>} />
+          <Route path="/admin-dashboard" element={<Dashboard />} />
+        </Routes>
+        <Footer/>
+      </div >
   );
 }
 
