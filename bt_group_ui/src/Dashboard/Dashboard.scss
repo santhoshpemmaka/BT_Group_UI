@@ -1,0 +1,34 @@
+.dashboard-container{
+    width: 90%;
+    margin: 1rem auto;
+    min-height: 95vh;
+    overflow-y: scroll;
+    .dashboard-title{
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        text-align: center;
+        color: #333;
+        letter-spacing: 0.05rem;
+    }
+    .table-component{
+        margin-top: 1.5rem;
+        table{
+            border-collapse: collapse;
+        }
+        td,th{
+            border: 1px solid #999;
+            padding: 0.5rem;
+            text-align: left;
+        }
+        .th-sno{
+            width: 10%;
+        }
+        .th-name, .th-email, .th-company{
+            width: 15%;
+        }
+        .th-comments{
+            width: 45%;
+        }
+
+    }
+}
