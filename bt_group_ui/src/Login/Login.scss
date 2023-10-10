@@ -2,6 +2,7 @@
     min-height: 90vh;
     width: 90%;
     overflow-y: scroll;
+    position: relative;
     .login-title{
         font-size: 1.5rem;
         margin-top: 1rem;
@@ -58,12 +59,18 @@
             width: 30%;
             margin: 1rem auto;
             padding: 0.5rem;
-            background: white;
+            background: rgb(210, 67, 67);
             font-size: 1.15rem;
-            color: #333;
-            border: 1px soild #e6e6e6;
+            color: #fff;
+            border: none;
             border-radius: 0.5rem;
             cursor: pointer;
         }
     }
+    .loader-dots {
+		position: absolute;
+		top: 20%;
+		left: 40%;
+		transform: translate(50%, 50%);
+	}
 }
