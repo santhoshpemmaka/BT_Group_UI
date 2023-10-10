@@ -33,7 +33,8 @@ const Login = () => {
         
             });
             const resultJSON = await response.json();
-            if(response.status == 200){
+            console.log("result",resultJSON);
+            if(resultJSON?.status){
                 sessionStorage.setItem("bt-login-status",true);
                 navigate('/admin-dashboard');
                 setuserState({
