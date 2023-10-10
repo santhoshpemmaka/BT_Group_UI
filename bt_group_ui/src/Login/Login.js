@@ -1,6 +1,7 @@
-import React,{createContext, useState} from 'react';
+import React,{ useState} from 'react';
 import './Login.scss';
 import { useNavigate } from 'react-router-dom';
+import {ThreeDots} from 'react-loader-spinner';
 
 const Login = () => {
     const [userState, setuserState] = useState({
@@ -9,6 +10,7 @@ const Login = () => {
     });
     const [fieldError,setfieldError] = useState(null);
     const navigate = useNavigate();
+    const [showLoader, setshowLoader] = useState(false);
     
     const testCredentials = () => {
         const result = {...userState,email: "santhosh.pemmaka@gmail.com",password : "santhosh321"};
@@ -18,6 +20,7 @@ const Login = () => {
     const postAPIHandler = async() => {
         const URL = "https://bt-group-backend.onrender.com/login";
         try{
+            setshowLoader(prev => !prev);
             const response = await fetch(URL,{
                 method: "POST",
                 body : JSON.stringify({
@@ -40,16 +43,20 @@ const Login = () => {
             }
             if(response.status == 400){
                 setfieldError("Credentials incorrect, Please check it once!");
+                setshowLoader(prev => !prev);
             }
         }
         catch(err){
             console.log("Post API Error",err);
+            setshowLoader(prev => !prev);
         }
     }
     
     const inputHandler = (type,e) => {
+        setfieldError(false);
         const result = {...userState,[type]: e.target.value};
         setuserState(prev => result);
+
     }
 
     const submitHandler = () => {
@@ -75,8 +82,18 @@ const Login = () => {
             </p>
             {fieldError && fieldError?.length >0 && <p className='error-message'>{fieldError}</p>}
             <button className='login-button' onClick={()=> submitHandler()}>Login</button>
-            <button className='login-button-test' onClick={() => testCredentials()}>Login Test Credentials</button>
+            <button className='login-button-test' onClick={() => testCredentials()}>Fill With Test Credentials</button>
         </div>
+        {showLoader && (
+            <div className='loader-dots'>
+                <ThreeDots
+                    color='#ff3f6c'
+                    height={100}
+                    width={100}
+                    timeout={5000}
+                />
+            </div>
+		)}
     </div>
   )
 }

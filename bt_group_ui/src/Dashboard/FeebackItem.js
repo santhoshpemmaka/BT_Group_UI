@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FeebackItem = ({feedback,index}) => {
-    const {_id, name,email,company,comments} = feedback;
+    const {name,email,company,comments} = feedback;
   return (
     <tr>
         <td>{index+1}</td>

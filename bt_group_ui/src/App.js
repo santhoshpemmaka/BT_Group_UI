@@ -1,5 +1,5 @@
 import './App.scss';
-import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {Routes, Route } from 'react-router-dom';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import Feedback from './Feedback/Feeback';
@@ -11,6 +11,7 @@ function App() {
   return (
       <div className='app-component'>
         <Header />
+        {/* Routing concept implementation */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
